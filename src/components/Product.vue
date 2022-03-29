@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { getImageUrl } from '@/helpers/image'
 import { Product } from '@/types/product'
 
 interface Props {
@@ -16,7 +15,7 @@ const { product } = defineProps<Props>()
       <img
         class="object-contain"
         v-if="product.attributes.image.data.length"
-        :src="getImageUrl(product.attributes.image.data[0].attributes.url)"
+        :src="product.attributes.image.data[0].attributes.url"
         :alt="product.attributes.name"
       />
       <p class="mt-2 font-bold text-lg">{{ product.attributes.name }}</p>

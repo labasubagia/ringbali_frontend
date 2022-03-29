@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { getImageUrl } from '@/helpers/image'
 import { Category } from '@/types/category'
 
 interface Props {
@@ -13,7 +12,7 @@ const { category } = defineProps<Props>()
   <router-link :to="`/categories/${category.id}`">
     <div
       class="w-full h-64 mt-8 rounded-md overflow-hidden bg-cover bg-center md:mt-0"
-      :style="`background-image: url(${getImageUrl(category.attributes.image?.data.attributes.url as string)})`"
+      :style="`background-image: url(${category.attributes.image?.data.attributes.url as string})`"
     >
       <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
         <div class="px-10 max-w-xl">
