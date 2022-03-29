@@ -15,7 +15,7 @@ const { product } = defineProps<Props>()
       <img
         class="object-contain"
         v-if="product.attributes.image.data.length"
-        :src="product.attributes.image.data[0].attributes.url"
+        :src="product.attributes.image.data[0].attributes.formats.small.url"
         :alt="product.attributes.name"
       />
       <p class="mt-2 font-bold text-lg">{{ product.attributes.name }}</p>
