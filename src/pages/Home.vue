@@ -21,20 +21,20 @@ getAllProducts().then(data => products.value = data)
   <MainLayout>
     <Hero />
     <div class="my-8">
-      <!-- Product Section -->
-      <div v-if="products.length" class="container mx-auto px-8 mt-12">
-        <header class="my-8 text-3xl font-bold flex items-center justify-center">Produk</header>
-        <div class="md:grid md:grid-cols-4 mt-6 gap-6">
-          <Product v-for="(p, i) in products.slice(0, 8)" :product="p" :index="i" />
-        </div>
-      </div>
-
       <!-- Category Section -->
       <div v-if="categories.length" class="container mx-auto px-8 mt-16">
         <header class="my-8 text-3xl font-bold flex items-center justify-center">Kategori</header>
         <Category :category="categories[0]" />
         <div class="md:grid md:grid-cols-2 mt-6 gap-6">
           <Category v-for="(c, i) in categories.slice(1, 3)" :category="c" :index="i" />
+        </div>
+      </div>
+
+      <!-- Product Section -->
+      <div v-if="products.length" class="container mx-auto px-8 mt-12">
+        <header class="my-8 text-3xl font-bold flex items-center justify-center">Produk</header>
+        <div class="md:grid md:grid-cols-4 mt-6 gap-6">
+          <Product v-for="(p, i) in products.slice(0, 8)" :product="p" :index="i" />
         </div>
       </div>
     </div>
