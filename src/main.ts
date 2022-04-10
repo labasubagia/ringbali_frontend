@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import "tw-elements";
 import router from "@/router";
 import App from "@/App.vue";
 import "@/index.css";

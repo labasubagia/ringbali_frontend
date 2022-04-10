@@ -13,7 +13,7 @@ const { product } = defineProps<Props>()
   <router-link :to="`/products/${product.id}`">
     <div class="rounded overflow-hidden">
       <img
-        class="object-contain"
+        class="object-fit"
         v-if="product.attributes.image.data.length"
         :src="product.attributes.image.data[0].attributes.formats.small.url"
         :alt="product.attributes.name"

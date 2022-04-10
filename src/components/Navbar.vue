@@ -21,10 +21,10 @@
         <nav>
           <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
             <li>
-              <a
+              <router-link
                 class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                href="#product"
-              >Product</a>
+                to="/"
+              >Home</router-link>
             </li>
           </ul>
         </nav>

@@ -10,19 +10,23 @@ import Category from '@/components/Category.vue';
 import Product from '@/components/Product.vue';
 
 const categories = ref<ICategory[]>([])
-getAllCategory().then(data => categories.value = data)
-
 const products = ref<IProduct[]>([])
-getAllProducts().then(data => products.value = data)
+
+const onLoad = async () => {
+  categories.value = await getAllCategory()
+  products.value = await getAllProducts()
+}
+
+onLoad()
 
 </script>
 
 <template>
   <MainLayout>
     <Hero />
-    <div class="my-8">
+    <div class="my-8 px-10">
       <!-- Category Section -->
-      <div v-if="categories.length" class="container mx-auto px-8 mt-16">
+      <div v-if="categories.length" class="container mx-auto mt-16">
         <header class="my-8 text-3xl font-bold flex items-center justify-center">Kategori</header>
         <Category :category="categories[0]" />
         <div class="md:grid md:grid-cols-2 mt-6 gap-6">
@@ -31,7 +35,7 @@ getAllProducts().then(data => products.value = data)
       </div>
 
       <!-- Product Section -->
-      <div v-if="products.length" class="container mx-auto px-8 mt-12">
+      <div v-if="products.length" class="container mx-auto mt-12">
         <header class="my-8 text-3xl font-bold flex items-center justify-center">Produk</header>
         <div class="md:grid md:grid-cols-4 mt-6 gap-6">
           <Product v-for="(p, i) in products.slice(0, 8)" :product="p" :index="i" />

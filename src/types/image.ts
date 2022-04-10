@@ -24,6 +24,7 @@ interface Attributes {
 interface Formats {
   thumbnail: Thumbnail;
   small: Small;
+  medium: Medium;
 }
 
 interface Thumbnail {
@@ -39,6 +40,18 @@ interface Thumbnail {
 }
 
 interface Small {
+  name: string;
+  hash: string;
+  ext: string;
+  mime: string;
+  path: any;
+  width: number;
+  height: number;
+  size: number;
+  url: string;
+}
+
+interface Medium {
   name: string;
   hash: string;
   ext: string;
