@@ -24,9 +24,9 @@ onLoad()
 <template>
   <MainLayout>
     <Hero />
-    <div class="my-8 px-10">
+    <div class="p-4">
       <!-- Category Section -->
-      <div v-if="categories.length" class="container mx-auto mt-16">
+      <div v-if="categories.length" class="container mx-auto">
         <header class="my-8 text-3xl font-bold flex items-center justify-center">Kategori</header>
         <Category :category="categories[0]" />
         <div class="md:grid md:grid-cols-2 mt-6 gap-6">
