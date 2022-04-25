@@ -18,6 +18,8 @@
               </router-link>
               <router-link class="inline-block no-underline hover:text-black hover:underline py-2 px-4" to="/products">
                 Product</router-link>
+              <router-link class="inline-block no-underline hover:text-black hover:underline py-2 px-4" to="/about">
+                About</router-link>
             </li>
           </ul>
         </nav>

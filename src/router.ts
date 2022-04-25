@@ -1,23 +1,16 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import Home from "@/pages/Home.vue";
+import ListProduct from "@/pages/ListProduct.vue";
+import Product from "@/pages/Product.vue";
+import About from "@/pages/About.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
-    {
-      path: "/",
-      name: "Home",
-      component: () => import("@/pages/Home.vue"),
-    },
-    {
-      path: "/products",
-      name: "ListProduct",
-      component: () => import("@/pages/ListProduct.vue"),
-    },
-    {
-      path: "/products/:id",
-      name: "Product",
-      component: () => import("@/pages/Product.vue"),
-    },
+    { path: "/", name: "Home", component: Home },
+    { path: "/products", name: "ListProduct", component: ListProduct },
+    { path: "/products/:id", name: "Product", component: Product },
+    { path: "/about/", name: "About", component: About },
   ],
 });
 
