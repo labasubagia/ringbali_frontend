@@ -9,27 +9,27 @@ interface IPerson {
 
 const teams: IPerson[] = [
   {
-    image: '',
+    image: 'https://res.cloudinary.com/dvn1e68uc/image/upload/v1657774426/cikal_bf8c5e8b89.jpg?updated_at=2022-07-14T04:53:48.630Z',
     name: 'Cikal',
     role: 'Hustler'
   },
   {
-    image: '',
+    image: 'https://res.cloudinary.com/dvn1e68uc/image/upload/v1657774430/ardi_crop_371d19a8b6.png?updated_at=2022-07-14T04:53:54.798Z',
     name: 'Ardi',
     role: 'Hipster'
   },
   {
-    image: '',
+    image: 'https://res.cloudinary.com/dvn1e68uc/image/upload/v1657774414/nindya_crop_8eb5a06009.jpg?updated_at=2022-07-14T04:53:37.293Z',
     name: 'Nindya',
     role: 'Hipster'
   },
   {
-    image: '',
+    image: 'https://res.cloudinary.com/dvn1e68uc/image/upload/v1657778108/alit_28a944ebca.jpg?updated_at=2022-07-14T05:55:09.400Z',
     name: 'Alit',
     role: 'Hacker'
   },
   {
-    image: '',
+    image: 'https://res.cloudinary.com/dvn1e68uc/image/upload/v1657775262/laba_crop_17cc62b2c0.jpg?updated_at=2022-07-14T05:07:43.410Z',
     name: 'Laba',
     role: 'Hacker'
   },
@@ -64,7 +64,7 @@ const teams: IPerson[] = [
       <div class="grid gap-4 md:grid-cols-3">
         <div v-for="(person, i) in teams" :key="i" class="max-w-sm rounded-lg ">
           <div class="flex flex-col items-center pb-10">
-            <img class="mb-3 object-cover w-48 h-48 rounded-full shadow-lg"
+            <img class="mb-3 object-cover w-48 h-48 rounded-full shadow-lg border-8"
               :src="person.image ? person.image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9AMnBfcU5oTPTWxB1BLfEB16DgLnMFQ8DVreCbY&s=0'"
               :alt="person.name">
             <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ person.name }}</h5>
