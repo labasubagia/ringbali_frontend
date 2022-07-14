@@ -1,42 +1,48 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { useRoute } from 'vue-router';
-import MainLayout from '@/layouts/MainLayout.vue'
-import { Product as IProduct } from '@/types/product'
-import { getProduct } from '@/api/product';
+import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
+import MainLayout from "@/layouts/MainLayout.vue";
+import { Product as IProduct } from "@/types/product";
+import { getProduct } from "@/api/product";
 
-const route = useRoute()
-const product = ref<IProduct | null>(null)
+const route = useRoute();
+const product = ref<IProduct | null>(null);
 
 const text = computed(() => {
-  return `Halo saya tertarik dengan produk ${product?.value?.attributes?.name}`
-})
+  return `Halo saya tertarik dengan produk ${product?.value?.attributes?.name}`;
+});
 
 const onLoad = async () => {
-  product.value = await getProduct(<string>route.params.id)
-}
+  product.value = await getProduct(<string>route.params.id);
+};
 
-onLoad()
-
+onLoad();
 </script>
 
 <template>
   <MainLayout>
     <div class="container mx-auto">
       <div class="mx-auto flex flex-wrap w-full p-4 md:p-12">
-
-        <img alt="ecommerce" class="object-contain w-full sm:w-48 md:w-96 object-center rounded-lg"
-          :src="product?.attributes?.image.data.find(Boolean)?.attributes?.url">
+        <img
+          alt="ecommerce"
+          class="object-contain w-full sm:w-48 md:w-96 object-center rounded-lg"
+          :src="product?.attributes?.image.data.find(Boolean)?.attributes?.url"
+        />
 
         <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-
-          <h1 class="text-gray-900 text-lg md:text-3xl title-font font-medium mb-1">{{ product?.attributes?.name }}</h1>
+          <h1
+            class="text-gray-900 text-lg md:text-3xl title-font font-medium mb-1"
+          >
+            {{ product?.attributes?.name }}
+          </h1>
           <!-- <span class="flex">
             <a class="text-gray-500" style="font-weight: bold;" href="#">
               Artist : I Wayan Marya</a>
           </span> -->
 
-          <p class="leading-relaxed text-sm" style="text-align: justify;">{{ product?.attributes?.description }}</p>
+          <p class="leading-relaxed text-sm" style="text-align: justify">
+            {{ product?.attributes?.description }}
+          </p>
 
           <!-- <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
             <div class="flex">
@@ -46,24 +52,28 @@ onLoad()
 
           <div class="flex flex-col md:flex-row justify-between">
             <span class="title-font font-medium text-2xl mt-4 text-gray-900">
-              Rp. {{ product?.attributes?.price.toLocaleString('id') }}
+              Rp. {{ product?.attributes?.price.toLocaleString("id") }}
             </span>
 
-            <a target="_blank"
+            <a
+              target="_blank"
               class="mt-4 flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
-              :href="`https://wa.me/6289513080754?text=${text}`">
+              :href="`https://wa.me/6289513080754?text=${text}`"
+            >
               CheckOn WhatsApp
-              <svg class="w-6 h-6 ml-2 text-white-400 fill-current" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512">
+              <svg
+                class="w-6 h-6 ml-2 text-white-400 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
                 <path
-                  d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
-                </path>
+                  d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+                ></path>
               </svg>
             </a>
           </div>
         </div>
       </div>
     </div>
-
   </MainLayout>
 </template>
